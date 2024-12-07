@@ -1,4 +1,4 @@
-# systemd的使用
+# linux中的systemd的使用
 查看 systemd 的状态及服务配置文件存放处：`systemctl status`（通常配置文件在：usr/lib/systemd/system）  
 启动服务：`sudo systemctl start <服务名>`  
 停止服务：`sudo systemctl stop <服务名>`  
