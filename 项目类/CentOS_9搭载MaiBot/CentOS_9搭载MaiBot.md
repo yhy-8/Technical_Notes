@@ -22,6 +22,13 @@ gpgkey=https://pgp.mongodb.com/server-8.0.asc
 刷新服务配置：`systemctl daemon-reload`  
 启动MogoDB：`systemctl start mongod`  
 查看MogoDB状态：`systemctl status mongod`  
+
+配置文件位于`/etc/mongod.conf `  
+默认情况下，MongoDB 使用 mongod 用户帐户运行，并且使用以下默认目录：  
+`/var/lib/mongo`（数据目录）  
+`/var/log/mongodb`（日志目录）  
+如果更改运行 MongoDB 进程的用户，必须赋予新用户访问这些目录的权限。
+
 至此，有关MogoDB的操作全部完成
 
 ### 3、**安装NapCat框架**
