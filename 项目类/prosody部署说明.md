@@ -2,7 +2,8 @@
 本次部署于CentOS Stream 9 64位系统上  
 部署参考[prosody官网](https://prosody.im/)
 ## 相关介绍
-prosody是私有化聊天服务器，基于XMPP+OMEMO便可以实现端到端加密通信，加密理论安全性和Signal相当
+prosody是私有化聊天服务器，基于XMPP+OMEMO便可以实现端到端加密通信，加密理论安全性和Signal相当。  
+个人认为wire的开源方案更好，但是部署wire需要更多的服务器资源，详见[官网](https://wire.com/)和[相关开源](https://github.com/wireapp/wire)
 ## 服务端prosody部署
 需要开放的端口`5222、5280、5281`
 ### 1、安装prosody
