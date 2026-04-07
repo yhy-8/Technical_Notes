@@ -1,6 +1,8 @@
 # claude接入与配置指南
 
-linux安装claude code：`curl -fsSL https://claude.ai/install.sh | bash`
+**linux版**
+
+安装claude code：`curl -fsSL https://claude.ai/install.sh | bash`
 
 ### 使用CC-Switch转换
 源码地址：https://github.com/farion1231/cc-switch
