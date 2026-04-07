@@ -1,6 +1,6 @@
 # claude接入与配置指南
 
-**linux版**
+## linux版
 
 安装claude code：`curl -fsSL https://claude.ai/install.sh | bash`
 
