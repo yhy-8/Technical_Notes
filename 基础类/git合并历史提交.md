@@ -1,11 +1,11 @@
-# Git 历史清理指南：合并旧提交并保留最近10次
+# Git 合并历史提交
+# 1.合并旧提交并保留最近10次
 
-适用于单人开发项目，使用 JetBrains IDE (IntelliJ/WebStorm/PyCharm) 配合命令行操作。
+适用于单人开发项目，这里使用PyCharm配合命令行操作。
 
 ---
 
 ## 第一步：安全备份与分界线定位
-在开始任何破坏性操作前，先为当前状态打一个完整备份分支。
 
 ```bash
 # 1. 创建备份分支
@@ -40,7 +40,7 @@ git reset --hard temp-branch
 
 ---
 
-## 第三步：解除 IDE 强制推送限制 (GUI)
+## 第三步：解除 IDE 强制推送限制
 **IDE 操作路径：**
 
 1. 点击菜单栏 **File (文件)** -> **Settings (设置)** [Mac 为 IntelliJ IDEA -> Settings]。
@@ -51,20 +51,13 @@ git reset --hard temp-branch
 
 ---
 
-## 第四步：强制推送至远程 (GUI + Token)
-**注意：由于历史已改变，必须使用“强制推送”，且需要使用 Personal Access Token。**
+## 第四步：强制推送至远程
+**注意：由于历史已改变，必须使用“强制推送”**
 
 **GUI 推送细节：**
 1. 按 `Ctrl + Shift + K` 打开推送窗口。
 2. **关键点：** 点击蓝色“Push”按钮旁边的**下拉箭头 ⌵**。
 3. 选择 **Force Push (强制推送)**。
-
-**关于认证失败：**
-当弹出用户名密码框时：
-* **Username:** 输入你的平台账号。
-* **Password:** **不要输登录密码！** 请输入你在 GitHub/Gitee 后台生成的 **Personal Access Token (个人访问令牌)**。
-
-**如果推送弹出“Merge”或“Rebase”提示，请务必关闭，绝不能点合并！必须确保执行的是 Force Push。**
 
 ---
 
@@ -83,3 +76,41 @@ git branch -D backup-main
 回到 **Settings -> Version Control -> Git**，在 **Protected branches** 中点击 **+** 号，重新把 `main` 加回去，防止未来误操作。
 
 ---
+
+# 2.合并旧提交为一个总提交
+
+## 第一步：创建备份分支
+
+```bash
+git branch backup-main
+```
+---
+
+## 第二步：覆盖重建
+
+```bash
+# 1. 创建并切换到一个全新的“无父辈”临时分支（默认基于当前最新代码状态）
+git checkout --orphan temp-branch
+
+# 2. 将当前工作区的所有内容全部添加到暂存区
+git add .
+
+# 3. 创建一个全新的提交，这将成为你仓库里唯一的一个提交
+git commit -m "清理历史：仅保留最新代码状态"
+
+# 4. 删除旧的带有冗长历史的 main 分支
+git branch -D main
+
+# 5. 将当前临时分支重命名为 main
+git branch -m main
+```
+---
+## 第三步、第四步均和前面一样
+
+## 第五步：善后清理与环境恢复
+
+同前面一样，**唯一不同**的是只需要**执行删除备份**即可
+
+```bash
+git branch -D backup-main
+```
