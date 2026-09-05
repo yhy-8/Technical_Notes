@@ -25,17 +25,19 @@
           "name": "DS-V4-Flash-Vsion",
           "contextWindow": 1000000,
           "input": ["text", "image"],
-          "reasoning": true
+          "reasoning": true,
+          "maxTokens": 100000
         },
         {
           "id": "deepseek-v4-pro",
           "name": "DS-V4-Pro",
           "contextWindow": 1000000,
-          "reasoning": true
+          "reasoning": true,
+          "maxTokens": 100000
         }
       ]
     }
   }
 }
 ```
-**这里对于多模态模型需要特别说明input参数支持image，对于reasoning参数一般显式开启**
+**这里对于多模态模型需要特别说明input参数支持image，对于reasoning参数一般显式开启，maxTokens是该模型单次请求能生成的最大输出Token数（可选）**
