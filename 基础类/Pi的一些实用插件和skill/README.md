@@ -22,17 +22,10 @@
       "apiKey": "你的key",
       "models": [
         {
-          "id": "deepseek-v4-flash-vision-exp",
-          "name": "DS-V4-Flash-Vsion",
+          "id": "deepseek-flash",
+          "name": "DS-V4.1-Flash",
           "contextWindow": 1000000,
           "input": ["text", "image"],
-          "reasoning": true,
-          "maxTokens": 100000
-        },
-        {
-          "id": "deepseek-v4-pro",
-          "name": "DS-V4-Pro",
-          "contextWindow": 1000000,
           "reasoning": true,
           "maxTokens": 100000
         }
