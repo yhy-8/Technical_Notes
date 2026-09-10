@@ -11,7 +11,7 @@
 * **作为详细的coding手册**：详细的每个具体的行为应该如何做的说明，放到`~/.pi/agent/skills`。链接https://github.com/mattpocock/skills  
  
 **实际上我把1的全部和2的全局说明部分整合到一个`~/.pi/agent/AGENTS.md`**
-## 细节
+## 配置
 配置模型在`~/.pi/agent/models.json`，示例：
 ```
 {
@@ -41,4 +41,6 @@
   }
 }
 ```
-**这里对于多模态模型需要特别说明input参数支持image，对于reasoning参数一般显式开启，maxTokens是该模型单次请求能生成的最大输出Token数（可选）**
+* **input**：对于多模态模型需要特别说明该参数支持image  
+* **reasoning**：该参数一般显式开启
+* **maxTokens**：该模型单次请求能输出的最大Token数
